@@ -47,5 +47,5 @@ export default async function handler(_: NextApiRequest, res: NextApiResponse) {
     })),
     data: row.date.date.start,
   }));
-  res.status(200).json(query);
+  res.status(200).json(reStructed);
 }

@@ -1,16 +1,23 @@
 "use client";
 
 import * as React from "react";
+import { NotionRenderer } from "react-notion-x";
 import dynamic from "next/dynamic";
 import Image from "next/image";
-import { ExtendedRecordMap } from "notion-types";
-import { NotionRenderer } from "react-notion-x";
+import { type ExtendedRecordMap } from "notion-types";
+import Flex from "@/components/common/Flex";
 
 const Code = dynamic(() =>
   import("react-notion-x/build/third-party/code").then((m) => m.Code)
 );
+const Collection = dynamic(() =>
+  import("react-notion-x/build/third-party/collection").then(
+    (m) => m.Collection
+  )
+);
 
 type Props = {
+  title: string;
   recordMap: ExtendedRecordMap;
   previewImagesEnabled?: boolean;
   rootPageId?: string;
@@ -18,25 +25,41 @@ type Props = {
 };
 
 const NotionPage = ({
+  title,
   recordMap,
   previewImagesEnabled,
   rootPageId,
   rootDomain,
 }: Props) => {
+  React.useEffect(() => {
+    console.log(recordMap);
+  }, [recordMap]);
+
   return (
-    <NotionRenderer
-      recordMap={recordMap}
-      darkMode={false}
-      rootDomain={rootDomain}
-      rootPageId={rootPageId}
-      previewImages={previewImagesEnabled}
-      components={{
-        Code,
-        nextImage: Image,
-      }}
-      disableHeader
-      isImageZoomable
-    />
+    <Flex
+      className="max-w-[1000px] mx-auto px-[16px]"
+      $direction="column"
+      $gap={12}
+    >
+      <h1>
+        <b>{title}</b>
+      </h1>
+      <NotionRenderer
+        className="p-0"
+        recordMap={recordMap}
+        darkMode={false}
+        rootDomain={rootDomain}
+        rootPageId={rootPageId}
+        previewImages={previewImagesEnabled}
+        components={{
+          Collection,
+          Code,
+          nextImage: Image,
+        }}
+        disableHeader
+        isImageZoomable
+      />
+    </Flex>
   );
 };
 

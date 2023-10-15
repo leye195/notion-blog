@@ -12,10 +12,10 @@ type Block = {
 
 const notionSecret = process.env.NOTION_SECRET;
 const notionDatabase = process.env.NOTION_DATABASE;
-const notionCookie = process.env.NOTION_COOKIE;
 
 export const notion = new Client({
   auth: notionSecret,
+  notionVersion: "2022-06-28",
 });
 export const notionToMD = new NotionToMarkdown({
   notionClient: notion,

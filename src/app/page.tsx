@@ -8,7 +8,5 @@ async function fetchNotionData() {
 
 export default async function Home() {
   const data = await fetchNotionData();
-  console.log(data);
-
   return <MainPage />;
 }
