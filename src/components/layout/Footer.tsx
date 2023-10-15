@@ -2,7 +2,7 @@ import { flex } from "@/styles/mixin";
 import styled from "styled-components";
 
 const Container = styled.footer`
-  ${flex({ alignItems: "center", justifyContent: "center" })};
+  ${flex({ $alignItems: "center", $justifyContent: "center" })};
   padding: 1.5rem 0;
   width: inherit;
 `;

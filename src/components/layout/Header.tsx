@@ -1,19 +1,19 @@
-import { flex } from "@/styles/mixin";
+import Link from "next/link";
 import styled from "styled-components";
+
+import { flex } from "@/styles/mixin";
 import { Light } from "../icon";
 import Button from "../common/Button";
-import Link from "next/link";
-import breakpoints from "@/styles/breakpoints";
 
 const Container = styled.header`
-  ${flex({ alignItems: "center" })};
+  ${flex({ $alignItems: "center" })};
   width: inherit;
   height: 4rem;
   padding: 0 1rem;
 `;
 
 const Nav = styled.nav`
-  ${flex({ alignItems: "center", justifyContent: "space-between" })};
+  ${flex({ $alignItems: "center", $justifyContent: "space-between" })};
   max-width: 1600px;
   width: inherit;
   margin: 0 auto;
