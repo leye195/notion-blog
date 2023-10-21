@@ -11,7 +11,7 @@ import SectionWithLabel from "@/components/common/SectionWithLabel";
 const MainPage = ({ data }: Data<Post[]>) => {
   return (
     <Flex className="my-[1rem]" $direction="column">
-      <Flex></Flex>
+      <Flex className="h-[360px]"></Flex>
       <SectionWithLabel
         className="w-full px-[1rem]"
         title={<h3 className="text-2xl font-bold mb-[8px]">Recent Posts</h3>}

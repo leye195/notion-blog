@@ -27,7 +27,7 @@ export default async function handler(
   req: NextApiRequest,
   res: NextApiResponse
 ) {
-  const { count, category = undefined } = req.query;
+  const { count, category = "all" } = req.query;
   const query = await retrieveDatabase();
 
   const rows = query.results.map((res) => {
@@ -52,7 +52,7 @@ export default async function handler(
     date: row.date.date.start,
   }));
 
-  if (category && typeof category === "string") {
+  if (category && typeof category === "string" && category !== "all") {
     res.status(200).json(
       reStructed.filter(({ tag }) => {
         return tag.map(({ name }) => name).includes(category);
