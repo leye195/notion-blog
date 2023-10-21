@@ -11,6 +11,7 @@ const Container = styled.header`
   height: 4rem;
   padding: 0 1rem;
   position: fixed;
+  z-index: 1;
 `;
 
 const Nav = styled.nav`
@@ -22,25 +23,23 @@ const Nav = styled.nav`
   a {
     font-size: 18px;
   }
-`;
 
-const LeftSide = styled.div``;
-
-const RightSide = styled.div`
-  ${flex({})}
-  gap: 18px;
+  .right-side {
+    ${flex({ $alignItems: "center" })}
+    gap: 10px;
+  }
 `;
 
 const Header = () => {
   return (
-    <Container className="border-b-2 border-slate-50 bg-white">
+    <Container className="border-b-2 border-black-50 bg-white">
       <Nav>
-        <LeftSide>
+        <div className="left-side">
           <Link href="/">
             <b>DAN.DEV.LOG</b>
           </Link>
-        </LeftSide>
-        <RightSide>
+        </div>
+        <div className="right-side">
           <Link href="/posts">
             <b>Posts</b>
           </Link>
@@ -50,7 +49,7 @@ const Header = () => {
           <Button>
             <Light />
           </Button>
-        </RightSide>
+        </div>
       </Nav>
     </Container>
   );

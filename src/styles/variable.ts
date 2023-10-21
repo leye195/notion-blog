@@ -30,7 +30,7 @@ export const paletteColor = {
   pri300: "#8D4527",
   red100: "#EF3F5C",
   red500: "#F6515F",
-  blue200: "#74D1FC",
+  blue200: "#BFDBFE",
   blue400: "#42B7FA",
   green: "#46CE7E",
   green2: "#17EC6F",
