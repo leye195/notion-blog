@@ -10,6 +10,7 @@ const Container = styled.header`
   width: inherit;
   height: 4rem;
   padding: 0 1rem;
+  position: fixed;
 `;
 
 const Nav = styled.nav`
@@ -32,7 +33,7 @@ const RightSide = styled.div`
 
 const Header = () => {
   return (
-    <Container className="border-b-2 border-slate-50">
+    <Container className="border-b-2 border-slate-50 bg-white">
       <Nav>
         <LeftSide>
           <Link href="/">
@@ -40,11 +41,11 @@ const Header = () => {
           </Link>
         </LeftSide>
         <RightSide>
-          <Link href="/about">
-            <b>About</b>
+          <Link href="/posts">
+            <b>Posts</b>
           </Link>
-          <Link href="/tags">
-            <b>Tags</b>
+          <Link href="/resume">
+            <b>Resume</b>
           </Link>
           <Button>
             <Light />

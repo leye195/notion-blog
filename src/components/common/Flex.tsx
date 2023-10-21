@@ -12,6 +12,7 @@ const StyledDiv = styled.div<Flex>`
   align-items: ${({ $alignItems }) => $alignItems ?? "flex-start"};
   justify-content: ${({ $justifyContent }) => $justifyContent ?? "flex-start"};
   flex-direction: ${({ $direction }) => $direction ?? "row"};
+  gap: ${({ $gap }) => $gap ?? "0"};
 `;
 
 const Flex = ({ children, ...restProps }: Props) => (
