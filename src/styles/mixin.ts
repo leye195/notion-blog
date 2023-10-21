@@ -7,6 +7,7 @@ export type Flex = {
   $alignItems?: CSSProperties["alignItems"];
   $justifyContent?: CSSProperties["justifyContent"];
   $gap?: CSSProperties["gap"];
+  $flexWrap?: CSSProperties["flexWrap"];
 };
 
 /**
