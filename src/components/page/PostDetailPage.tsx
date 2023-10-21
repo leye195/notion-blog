@@ -37,11 +37,12 @@ const NotionPage = ({
 
   return (
     <Flex
-      className="max-w-[1000px] mx-auto px-[16px]"
+      className="max-w-[1000px] mx-auto p-[16px]"
+      $alignItems="center"
       $direction="column"
       $gap={12}
     >
-      <h1>
+      <h1 className="mb-0">
         <b>{title}</b>
       </h1>
       <NotionRenderer
