@@ -23,7 +23,11 @@ type Row = {
   };
 };
 
-export default async function handler(_: NextApiRequest, res: NextApiResponse) {
+export default async function handler(
+  req: NextApiRequest,
+  res: NextApiResponse
+) {
+  const { count, category = undefined } = req.query;
   const query = await retrieveDatabase();
 
   const rows = query.results.map((res) => {
@@ -45,7 +49,16 @@ export default async function handler(_: NextApiRequest, res: NextApiResponse) {
       id: tag.id,
       name: tag.name,
     })),
-    data: row.date.date.start,
+    date: row.date.date.start,
   }));
-  res.status(200).json(reStructed);
+
+  if (category && typeof category === "string") {
+    res.status(200).json(
+      reStructed.filter(({ tag }) => {
+        return tag.map(({ name }) => name).includes(category);
+      })
+    );
+  }
+
+  res.status(200).json(reStructed.slice(0, count != null ? +count : undefined));
 }
