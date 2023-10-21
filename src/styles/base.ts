@@ -29,7 +29,7 @@ const base = css`
 
   #nprogress .bar {
     height: 3px;
-    background-color: ${paletteColor.pri100};
+    background-color: ${paletteColor.blue200};
   }
 
   .humbleicons {

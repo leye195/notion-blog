@@ -1,9 +1,12 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
+
 import AppProvider from "@/components/AppProvider";
 import Layout from "@/components/layout";
+import NProgressBar from "@/components/NProgressBar";
 import "react-notion-x/src/styles.css";
 import "prismjs/themes/prism-tomorrow.css";
+import "nprogress/nprogress.css";
 import "./globals.css";
 
 const inter = Inter({ subsets: ["latin"] });
@@ -22,6 +25,7 @@ export default function RootLayout({
     <html lang="en">
       <body className={inter.className}>
         <AppProvider>
+          <NProgressBar />
           <Layout>{children}</Layout>
         </AppProvider>
       </body>
