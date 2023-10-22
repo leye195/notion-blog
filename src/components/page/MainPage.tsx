@@ -27,7 +27,6 @@ const MainPage = ({ data }: Data<Post[]>) => {
           fill
           priority
         />
-
         <Avatar
           className="md:w-[200px] md:h-[200px] w-[120px] h-[120px]  translate-y-[64px] border-spacing-4 border-2 border-gray-300"
           size={200}

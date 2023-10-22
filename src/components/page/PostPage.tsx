@@ -2,6 +2,8 @@
 
 import { useState } from "react";
 import Link from "next/link";
+import { useAnimate } from "framer-motion";
+
 import useIsomorphicLayoutEffect from "@/hooks/useIsomorphicLayoutEffect";
 import useFetchTags from "@/hooks/useFetchTags";
 import useMounted from "@/hooks/useMounted";
@@ -18,10 +20,22 @@ const PostPage = ({ data }: Data<Post[]>) => {
   const [category, setCategory] = useState("all");
   const isMounted = useMounted();
 
+  const [scope, animate] = useAnimate();
   const { data: tags } = useFetchTags();
 
   const handleClickTag = (name: string) => () => {
+    const animateTemplate = {
+      opacity: [0, 1],
+      y: [5, 0],
+    };
+
     setCategory(name);
+    animate("h1", animateTemplate, {
+      duration: 0.5,
+    });
+    animate(".posts", animateTemplate, {
+      duration: 0.5,
+    });
   };
 
   useIsomorphicLayoutEffect(() => {
@@ -32,18 +46,12 @@ const PostPage = ({ data }: Data<Post[]>) => {
 
   return (
     <Flex
+      ref={scope}
       className="w-full p-[1rem] mt-[48px]"
       $direction="column"
       $alignItems="center"
     >
-      <h1
-        className={classnames(
-          "text-[42px]",
-          "transition-all",
-          "animate-fade-in",
-          "flex"
-        )}
-      >
+      <h1 className={classnames("text-[42px]", "flex")}>
         <b>{category.toUpperCase()}</b>
         <span className="text-base text-slate-600">({posts.length})</span>
       </h1>
@@ -64,7 +72,7 @@ const PostPage = ({ data }: Data<Post[]>) => {
           ))}
         </Flex>
         <Flex
-          className="animate-fade-in w-full"
+          className="posts animate-fade-in w-full"
           $direction="column"
           $gap="12px"
         >
