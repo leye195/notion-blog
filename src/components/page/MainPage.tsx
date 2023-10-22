@@ -1,17 +1,40 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 
 import { type notionDBRowStructed as Post } from "@/types/notion";
 import { type Data } from "@/types/page";
 import Flex from "@/components/common/Flex";
 import PostCard from "@/components/common/PostCard";
 import SectionWithLabel from "@/components/common/SectionWithLabel";
+import Avatar from "@/components/common/Avatar";
 
 const MainPage = ({ data }: Data<Post[]>) => {
   return (
-    <Flex className="my-[1rem]" $direction="column">
-      <Flex className="h-[360px]"></Flex>
+    <Flex $direction="column" $gap="64px">
+      <Flex
+        className="md:h-[420px] h-[240px] w-full p-[20px] relative"
+        $alignItems="flex-end"
+        $justifyContent="center"
+      >
+        <Image
+          className="md:h-[420px] h-[240px] w-full"
+          src="/assets/bg.jpg"
+          alt=""
+          placeholder="blur"
+          blurDataURL="/assets/bg.jpg"
+          fill
+          priority
+        />
+
+        <Avatar
+          className="md:w-[200px] md:h-[200px] w-[120px] h-[120px]  translate-y-[64px] border-spacing-4 border-2 border-gray-300"
+          size={200}
+          src="/assets/avatar.gif"
+          priority
+        />
+      </Flex>
       <SectionWithLabel
         className="w-full px-[1rem]"
         title={<h3 className="text-2xl font-bold mb-[8px]">Recent Posts</h3>}
