@@ -1,3 +1,5 @@
+import { type notionDBRowStructed as Post } from "@/types/notion";
+
 /**
  * @description breakpoint의 미디어 쿼리 조건만 반환합니다(useMedia에서 사용)
  * @param mediaQuery 미디어 쿼리
@@ -26,4 +28,15 @@ export const setComma = (num: number): string =>
 
 export const classnames = (...classnames: string[]) => {
   return classnames.join(" ");
+};
+
+/**
+ *
+ * @param data posts 배열 데이터
+ * @param category 카테고리 정보
+ * @returns
+ */
+export const getPostsByCategory = (data: Post[], category: string) => {
+  if (category === "all") return data;
+  return data.filter(({ tag }) => tag.some(({ name }) => name === category));
 };
