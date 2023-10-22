@@ -4,7 +4,6 @@ import PostPage from "@/components/page/PostPage";
 
 export const metadata: Metadata = {
   title: "Posts | Dan DevLog",
-  description: "...",
 };
 
 async function fetchNotionData() {

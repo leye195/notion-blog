@@ -2,9 +2,10 @@
 
 import { useState } from "react";
 import Link from "next/link";
-import useFetchPosts from "@/hooks/useFetchPosts";
+import useIsomorphicLayoutEffect from "@/hooks/useIsomorphicLayoutEffect";
 import useFetchTags from "@/hooks/useFetchTags";
 import useMounted from "@/hooks/useMounted";
+import { classnames, getPostsByCategory } from "@/libs/utils";
 import { type notionDBRowStructed as Post } from "@/types/notion";
 import { type Data } from "@/types/page";
 import Flex from "@/components/common/Flex";
@@ -13,51 +14,70 @@ import Tag from "@/components/common/Tag";
 import Button from "@/components/common/Button";
 
 const PostPage = ({ data }: Data<Post[]>) => {
+  const [posts, setPosts] = useState(data);
   const [category, setCategory] = useState("all");
   const isMounted = useMounted();
 
-  const { data: posts, isLoading } = useFetchPosts<Post[]>({
-    category,
-    initData: data,
-  });
   const { data: tags } = useFetchTags();
 
   const handleClickTag = (name: string) => () => {
     setCategory(name);
   };
 
-  if (!isMounted) return <></>;
+  useIsomorphicLayoutEffect(() => {
+    setPosts(getPostsByCategory(data, category));
+  }, [category, data]);
+
+  if (!isMounted || !tags) return <></>;
 
   return (
-    <Flex className="w-full p-[1rem]" $direction="column">
+    <Flex
+      className="w-full p-[1rem] mt-[48px]"
+      $direction="column"
+      $alignItems="center"
+    >
+      <h1
+        className={classnames(
+          "text-[42px]",
+          "transition-all",
+          "animate-fade-in",
+          "flex"
+        )}
+      >
+        <b>{category.toUpperCase()}</b>
+        <span className="text-base text-slate-600">({posts.length})</span>
+      </h1>
       <Flex className="w-[inherit]" $direction="column" $gap="12px">
         <Flex
-          className="my-[10px] pb-[16px] w-[inherit] border-b-2"
+          className="my-[10px] pb-[16px] w-[inherit]"
           $gap="8px"
           $justifyContent="center"
           $flexWrap="wrap"
         >
           <Button padding="0" onClick={handleClickTag("all")}>
-            <Tag name="All" size="lg" color="white" />
+            <Tag name="All" type="outline" size="lg" color="white" />
           </Button>
           {tags?.map((tag: string) => (
             <Button key={tag} padding="0" onClick={handleClickTag(tag)}>
-              <Tag name={tag} size="lg" color="white" />
+              <Tag name={tag} type="outline" size="lg" color="white" />
             </Button>
           ))}
         </Flex>
-        <p className="text-[22px] font-semibold">
-          Total - {!isLoading && posts.length} Posts
-        </p>
-        {posts.map(({ id, name, date, tag }) => (
-          <Link
-            className="transition duration-500 border-2 rounded-xl w-[inherit] hover:border-blue-200 "
-            key={id}
-            href={`/posts/${id}`}
-          >
-            <PostCard id={id} name={name} date={date} tag={tag} />
-          </Link>
-        ))}
+        <Flex
+          className="animate-fade-in w-full"
+          $direction="column"
+          $gap="12px"
+        >
+          {posts.map(({ id, name, date, tag }) => (
+            <Link
+              className="transition duration-500 border-2 rounded-xl w-[inherit] hover:border-blue-200 "
+              key={id}
+              href={`/posts/${id}`}
+            >
+              <PostCard id={id} name={name} date={date} tag={tag} />
+            </Link>
+          ))}
+        </Flex>
       </Flex>
     </Flex>
   );
