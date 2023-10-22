@@ -11,7 +11,7 @@ const Container = styled.header`
   height: 4rem;
   padding: 0 1rem;
   position: fixed;
-  z-index: 1;
+  z-index: 2;
 `;
 
 const Nav = styled.nav`
