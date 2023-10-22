@@ -1,5 +1,6 @@
 "use client";
 
+import { forwardRef } from "react";
 import styled from "styled-components";
 
 import { type ComponentProps } from "react";
@@ -16,8 +17,14 @@ const StyledDiv = styled.div<Flex>`
   flex-wrap: ${({ $flexWrap }) => $flexWrap};
 `;
 
-const Flex = ({ children, ...restProps }: Props) => (
-  <StyledDiv {...restProps}>{children}</StyledDiv>
+const Flex = forwardRef<HTMLDivElement, Props>(
+  ({ children, ...restProps }, ref) => (
+    <StyledDiv {...restProps} ref={ref}>
+      {children}
+    </StyledDiv>
+  )
 );
+
+Flex.displayName = "Flex";
 
 export default Flex;
