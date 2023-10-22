@@ -6,7 +6,7 @@ export const metadata: Metadata = {
 };
 
 async function fetchNotionData() {
-  const res = await fetch("http://localhost:3000/api/posts?count=4");
+  const res = await fetch("http://localhost:3000/api/posts?count=5");
   const data = await res.json();
   return data;
 }
