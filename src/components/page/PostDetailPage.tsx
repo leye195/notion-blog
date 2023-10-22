@@ -7,13 +7,18 @@ import Image from "next/image";
 import { type ExtendedRecordMap } from "notion-types";
 import Flex from "@/components/common/Flex";
 
-const Code = dynamic(() =>
-  import("react-notion-x/build/third-party/code").then((m) => m.Code)
+const Code = dynamic(
+  () => import("react-notion-x/build/third-party/code").then((m) => m.Code),
+  { ssr: false }
 );
-const Collection = dynamic(() =>
-  import("react-notion-x/build/third-party/collection").then(
-    (m) => m.Collection
-  )
+const Collection = dynamic(
+  () =>
+    import("react-notion-x/build/third-party/collection").then(
+      (m) => m.Collection
+    ),
+  {
+    ssr: false,
+  }
 );
 
 type Props = {
