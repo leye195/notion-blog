@@ -16,7 +16,7 @@ const Container = styled.footer`
 const Footer = () => {
   return (
     <Container className="border-t-2 border-black-50 py-[32px] bg-gray-200 ">
-      <Flex className="text-[32px]" $gap="10px">
+      <Flex className="lg:text-[32px] text-[24px]" $gap="10px">
         <a href="https://github.com/leye195" target="_blank" rel="noopener">
           <GitHub />
         </a>
@@ -27,10 +27,10 @@ const Footer = () => {
           <RSS />
         </a>
       </Flex>
-      <p className="text-xl">
+      <p className="lg:text-xl text-lg">
         © {new Date().getFullYear()} dan.dev.log, All right reserved.
       </p>
-      <p className="text-lg">Built with NextJS</p>
+      <p className="lg:text-lg text-base">Built with NextJS</p>
     </Container>
   );
 };
