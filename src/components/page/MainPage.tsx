@@ -36,7 +36,14 @@ const MainPage = ({ data }: Data<Post[]>) => {
       </Flex>
       <SectionWithLabel
         className="w-full px-[1rem]"
-        title={<h3 className="text-2xl font-bold mb-[8px]">Recent Posts</h3>}
+        title={
+          <Flex className="w-full" $justifyContent="space-between">
+            <h3 className="text-2xl font-bold mb-[8px]">Recent Posts</h3>
+            <Link className="text-xl hover:underline" href="/posts">
+              더보기
+            </Link>
+          </Flex>
+        }
       >
         <Flex className="w-[inherit]" $direction="column" $gap="12px">
           {data.map(({ id, name, date, tag }) => (
