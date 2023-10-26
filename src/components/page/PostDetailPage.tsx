@@ -22,9 +22,10 @@ const Collection = dynamic(
 );
 
 type Props = {
-  title: string;
+  title?: string;
   recordMap: ExtendedRecordMap;
   previewImagesEnabled?: boolean;
+  disableHeader?: boolean;
   rootPageId?: string;
   rootDomain?: string;
 };
@@ -35,6 +36,7 @@ const NotionPage = ({
   previewImagesEnabled,
   rootPageId,
   rootDomain,
+  disableHeader = true,
 }: Props) => {
   React.useEffect(() => {
     console.log(recordMap);
@@ -47,9 +49,11 @@ const NotionPage = ({
       $direction="column"
       $gap={12}
     >
-      <h1 className="mb-0">
-        <b>{title}</b>
-      </h1>
+      {title && (
+        <h1 className="mb-0">
+          <b>{title}</b>
+        </h1>
+      )}
       <NotionRenderer
         className="p-0"
         recordMap={recordMap}
@@ -62,7 +66,7 @@ const NotionPage = ({
           Code,
           nextImage: Image,
         }}
-        disableHeader
+        disableHeader={disableHeader}
         isImageZoomable
       />
     </Flex>
