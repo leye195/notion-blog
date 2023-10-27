@@ -38,10 +38,6 @@ const NotionPage = ({
   rootDomain,
   disableHeader = true,
 }: Props) => {
-  React.useEffect(() => {
-    console.log(recordMap);
-  }, [recordMap]);
-
   return (
     <Flex
       className="max-w-[1000px] mx-auto p-[16px]"

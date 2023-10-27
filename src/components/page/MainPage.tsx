@@ -46,13 +46,13 @@ const MainPage = ({ data }: Data<Post[]>) => {
         }
       >
         <Flex className="w-[inherit]" $direction="column" $gap="12px">
-          {data.map(({ id, name, date, tag }) => (
+          {data.map(({ id, name, date, tag, url }) => (
             <Link
               className="transition duration-500 border-2 rounded-xl w-[inherit] hover:border-blue-200 "
               key={id}
               href={`/posts/${id}`}
             >
-              <PostCard id={id} name={name} date={date} tag={tag} />
+              <PostCard id={id} name={name} date={date} tag={tag} url={url} />
             </Link>
           ))}
         </Flex>

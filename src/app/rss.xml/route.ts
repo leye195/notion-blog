@@ -6,7 +6,6 @@ import { getPosts } from "@/apis";
 const generateRssFeed = async () => {
   try {
     const posts = await getPosts("all");
-    console.log(posts);
     const feed = new Rss({
       title: "Dan DevLog",
       description: "Dan DevLog",
