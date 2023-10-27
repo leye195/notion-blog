@@ -19,7 +19,7 @@ const MainPage = ({ data }: Data<Post[]>) => {
         $justifyContent="center"
       >
         <Image
-          className="md:h-[420px] h-[240px] w-full"
+          className="md:h-[420px] h-[240px] w-full z-[-1]"
           src="/assets/bg.jpg"
           alt=""
           placeholder="blur"

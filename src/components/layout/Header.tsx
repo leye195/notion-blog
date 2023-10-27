@@ -2,8 +2,7 @@ import Link from "next/link";
 import styled from "styled-components";
 
 import { flex } from "@/styles/mixin";
-import { Light } from "../icon";
-import Button from "../common/Button";
+import KBarToggleButton from "@/components/kbar/KBarToggleButton";
 
 const Container = styled.header`
   ${flex({ $alignItems: "center" })};
@@ -11,7 +10,6 @@ const Container = styled.header`
   height: 4rem;
   padding: 0 1rem;
   position: fixed;
-  z-index: 2;
 `;
 
 const Nav = styled.nav`
@@ -46,9 +44,7 @@ const Header = () => {
           <Link href="/resume">
             <b>Resume</b>
           </Link>
-          <Button>
-            <Light />
-          </Button>
+          <KBarToggleButton />
         </div>
       </Nav>
     </Container>
