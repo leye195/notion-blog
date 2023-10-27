@@ -1,9 +1,10 @@
 import { useKBar } from "kbar";
+import { useState } from "react";
 import styled from "styled-components";
 
 const Input = styled.input`
   width: 100%;
-  padding: 14px 24px;
+  padding: 14px 20px;
   background-color: transparent;
   box-sizing: border-box;
   outline: none;
@@ -16,20 +17,22 @@ const Input = styled.input`
 `;
 
 const KBarSearch = (props: React.InputHTMLAttributes<HTMLInputElement>) => {
+  const [input, setInput] = useState("");
   const { query, search, actions, currentRootActionId } = useKBar((state) => ({
     search: state.searchQuery,
     currentRootActionId: state.currentRootActionId,
     actions: state.actions,
   }));
+
   return (
     <Input
       ref={query.inputRefSetter}
-      {...props}
-      value={search}
+      value={input}
       placeholder="Cmd (or Ctrl) + K to toggle"
       onChange={(event) => {
         props.onChange?.(event);
         query.setSearch(event.target.value);
+        setInput(event.target.value);
       }}
       onKeyDown={(event) => {
         if (currentRootActionId && !search && event.key === "Backspace") {
