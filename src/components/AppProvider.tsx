@@ -3,13 +3,15 @@
 import { useRouter } from "next/navigation";
 import { ComponentProps, useState } from "react";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { Action, KBarProvider, useKBar, useRegisterActions } from "kbar";
+import { Action, KBarProvider, useRegisterActions } from "kbar";
+
 import useMounted from "@/hooks/useMounted";
 import useIsomorphicLayoutEffect from "@/hooks/useIsomorphicLayoutEffect";
 import StyledComponentsRegistry from "@/libs/registry";
 import { generateKBarAction } from "@/libs/kbarActions";
-import { type notionDBRowStructed as Post } from "@/types/notion";
 import GlobalStyle from "@/styles/global";
+import { type notionDBRowStructed as Post } from "@/types/notion";
+
 import KBarComponent from "@/components/KBarComponent";
 
 const queryClient = new QueryClient();
@@ -41,7 +43,7 @@ function HandleActionWithRoute() {
   useIsomorphicLayoutEffect(() => {
     if (isMounted) {
       (async () => {
-        const res = await fetch("http://localhost:3000/api/posts");
+        const res = await fetch(`${process.env.BASE_URL}/api/posts`);
         const posts = await res.json();
         const postActions = posts.map(({ id, name, date }: Post) => ({
           id,
