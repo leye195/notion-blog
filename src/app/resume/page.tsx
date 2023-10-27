@@ -1,3 +1,4 @@
+import ResumePage from "@/components/page/ResumePage";
 import { type Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -5,9 +6,5 @@ export const metadata: Metadata = {
 };
 
 export default async function Resume() {
-  return (
-    <div>
-      <h1>Resume</h1>
-    </div>
-  );
+  return <ResumePage />;
 }
