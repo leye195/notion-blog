@@ -6,7 +6,14 @@ const api = axios.create({
   },
 });
 
-export const getPosts = (category: string) =>
-  api.get(`/api/posts?category=${category}`);
-
 export const getTags = () => api.get("/api/tags");
+
+export const getPosts = async (category: string, count?: number) => {
+  const res = await fetch(
+    `${process.env.BASE_URL}/api/posts?category=${category}${
+      count != null ? `&count=${count}` : ``
+    }`
+  );
+  const data = await res.json();
+  return data;
+};

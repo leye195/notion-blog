@@ -10,7 +10,7 @@ const useFetchPosts = <T>({ category, initData }: Props<T>) => {
   const { data, isLoading, isFetched } = useQuery<T>({
     queryKey: ["posts", category],
     queryFn: async () => {
-      const { data } = await getPosts(category);
+      const data = await getPosts(category);
       return data;
     },
     refetchOnWindowFocus: false,

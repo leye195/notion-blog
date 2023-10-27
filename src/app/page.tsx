@@ -1,13 +1,13 @@
 import { type Metadata } from "next";
 import MainPage from "@/components/page/MainPage";
+import { getPosts } from "@/apis";
 
 export const metadata: Metadata = {
   title: "Dan DevLog",
 };
 
 async function fetchNotionData() {
-  const res = await fetch(`${process.env.BASE_URL}/api/posts?count=5`);
-  const data = await res.json();
+  const data = await getPosts("all", 5);
   return data;
 }
 
