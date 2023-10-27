@@ -3,13 +3,13 @@ import { paletteColor } from "@/styles/variable";
 import { KBarResults, useMatches } from "kbar";
 import styled from "styled-components";
 
-const ItemWrapper = styled.div<{ active: boolean }>`
+const ItemWrapper = styled.div<{ active: string }>`
   ${flex({ $alignItems: "center" })};
   position: relative;
   width: 100%;
   padding: 4px 16px;
   cursor: pointer;
-  opacity: ${({ active }) => (active ? 0.8 : 1)};
+  opacity: ${({ active }) => (active === "true" ? 0.8 : 1)};
   transition: background-color 0.2s;
 
   &::before {
@@ -20,7 +20,7 @@ const ItemWrapper = styled.div<{ active: boolean }>`
     width: 4px;
     height: 100%;
     background-color: ${paletteColor.white50};
-    transform: scaleX(${({ active }) => (active ? "100%" : "0")});
+    transform: scaleX(${({ active }) => (active === "true" ? "100%" : "0")});
     transform-origin: left;
     transition: transform 0.2s;
   }
@@ -61,7 +61,7 @@ const KBarResult = () => {
         typeof item === "string" ? (
           <Scope>{item}</Scope>
         ) : (
-          <ItemWrapper active={active}>
+          <ItemWrapper active={active.toString()}>
             <TitleWrapper>
               <Title>{item.name}</Title>
               {item.subtitle && <SubTitle>{item.subtitle}</SubTitle>}
