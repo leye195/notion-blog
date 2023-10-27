@@ -21,6 +21,7 @@ type Row = {
       start: string;
     };
   };
+  url: string;
 };
 
 export async function GET(req: Request) {
@@ -31,11 +32,12 @@ export async function GET(req: Request) {
 
   const rows = query.results.map((res) => {
     //@ts-ignore
-    const { properties } = res;
+    const { properties, url } = res;
     return {
       ...properties,
       id: res.id,
       tag: properties.tag.multi_select,
+      url,
     };
   }) as Row[];
   const reStructed = rows.map((row) => ({
@@ -49,6 +51,7 @@ export async function GET(req: Request) {
       name: tag.name,
     })),
     date: row.date.date.start,
+    url: row.url,
   }));
 
   if (category && typeof category === "string" && category !== "all") {

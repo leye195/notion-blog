@@ -8,6 +8,7 @@ export type notionDBRowStructed = {
   name: string;
   date: string;
   tag: Tag[];
+  url: string;
 };
 
 export type notionPage = {
