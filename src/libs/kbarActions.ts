@@ -19,6 +19,7 @@ export const generateKBarAction = (router: AppRouterInstance) => {
       id: "rss",
       name: "RSS",
       section: "Scope",
+      perform: () => router.push("/rss.xml"),
     },
     {
       id: "github",
