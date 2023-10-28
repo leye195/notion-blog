@@ -1,6 +1,7 @@
 import Image from "next/image";
 
 import Flex from "./Flex";
+import { classnames } from "@/libs/utils";
 
 type Props = {
   size: number;
@@ -12,7 +13,12 @@ type Props = {
 const Avatar = ({ className, size, src, priority }: Props) => {
   return (
     <Flex
-      className={`rounded-full bg-white overflow-hidden ${className}`}
+      className={classnames(
+        "rounded-full",
+        "bg-white",
+        "overflow-hidden",
+        className ?? ""
+      )}
       $alignItems="center"
       $justifyContent="center"
     >
