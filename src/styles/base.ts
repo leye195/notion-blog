@@ -4,6 +4,7 @@ import { paletteColor } from "./variable";
 const base = css`
   * {
     box-sizing: border-box;
+    line-height: 1.5;
   }
 
   html,
@@ -25,6 +26,14 @@ const base = css`
     &:disabled {
       cursor: not-allowed;
     }
+  }
+
+  p {
+    line-height: 1.7;
+  }
+
+  ul {
+    list-style: unset;
   }
 
   #nprogress .bar {
