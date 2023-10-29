@@ -59,6 +59,9 @@ dependencies:
   react-notion-x:
     specifier: ^6.16.0
     version: 6.16.0(@babel/runtime@7.23.2)(react-dom@18.2.0)(react@18.2.0)(webpack@5.89.0)
+  react-use:
+    specifier: ^17.4.0
+    version: 17.4.0(react-dom@18.2.0)(react@18.2.0)
   rss:
     specifier: ^1.2.2
     version: 1.2.2
