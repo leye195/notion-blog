@@ -1,6 +1,7 @@
 import Link from "next/link";
 import styled from "styled-components";
 
+import breakpoints from "@/styles/breakpoints";
 import { flex } from "@/styles/mixin";
 import KBarToggleButton from "@/components/kbar/KBarToggleButton";
 
@@ -25,6 +26,12 @@ const Nav = styled.nav`
   .right-side {
     ${flex({ $alignItems: "center" })}
     gap: 10px;
+
+    ${breakpoints.down("md")} {
+      b {
+        font-size: 16px;
+      }
+    }
   }
 `;
 

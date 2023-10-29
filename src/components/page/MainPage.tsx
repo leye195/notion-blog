@@ -38,8 +38,10 @@ const MainPage = ({ data }: Data<Post[]>) => {
         className="w-full px-[1rem]"
         title={
           <Flex className="w-full" $justifyContent="space-between">
-            <h3 className="text-2xl font-bold mb-[8px]">Recent Posts</h3>
-            <Link className="text-xl hover:underline" href="/posts">
+            <h3 className="md:text-2xl text-xl font-bold mb-[8px]">
+              Recent Posts
+            </h3>
+            <Link className="md:text-xl text-lg hover:underline" href="/posts">
               더보기
             </Link>
           </Flex>
