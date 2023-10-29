@@ -16,6 +16,12 @@ export const generateKBarAction = (router: AppRouterInstance) => {
       perform: () => router.push("/posts"),
     },
     {
+      id: "resume",
+      name: "Resume",
+      section: "Scope",
+      perform: () => router.push("/resume"),
+    },
+    {
       id: "rss",
       name: "RSS",
       section: "Scope",

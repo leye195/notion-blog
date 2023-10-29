@@ -5,6 +5,7 @@ import { ComponentProps, useState } from "react";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { Action, KBarProvider, useRegisterActions } from "kbar";
 
+import { getPosts } from "@/apis";
 import useMounted from "@/hooks/useMounted";
 import useIsomorphicLayoutEffect from "@/hooks/useIsomorphicLayoutEffect";
 import StyledComponentsRegistry from "@/libs/registry";
@@ -43,8 +44,7 @@ function HandleActionWithRoute() {
   useIsomorphicLayoutEffect(() => {
     if (isMounted) {
       (async () => {
-        const res = await fetch(`${process.env.BASE_URL}/api/posts`);
-        const posts = await res.json();
+        const posts = await getPosts("all");
         const postActions = posts.map(({ id, name, date }: Post) => ({
           id,
           name,
