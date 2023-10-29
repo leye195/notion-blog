@@ -263,7 +263,7 @@ const ResumePage = () => {
                   <h4 className="text-[20px]">
                     <b>
                       <Anchor
-                        href="https://tournament.playdapp.com"
+                        href="https://itemmanager.playdapp.com/"
                         target="_blank"
                       >
                         ItemManager
