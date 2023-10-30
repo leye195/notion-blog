@@ -55,10 +55,10 @@ const ResumePage = () => {
               <b>Blog:</b>{" "}
               <Anchor
                 className="text-blue-500"
-                href="https://github.com/leye195"
+                href="https://blog-v2-ochre.vercel.app"
                 target="_blank"
               >
-                blog link
+                https://blog-v2-ochre.vercel.app
               </Anchor>
             </li>
             <li>
