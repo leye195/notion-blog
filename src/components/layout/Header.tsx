@@ -37,7 +37,7 @@ const Nav = styled.nav`
 
 const Header = () => {
   return (
-    <Container className="border-b-2 border-black-50 bg-white">
+    <Container className="border-b-2 border-black-50 bg-white z-[1]">
       <Nav>
         <div className="left-side">
           <Link href="/">

@@ -16,16 +16,20 @@ const StyledKBarAnimator = styled(KBarAnimator)`
   box-shadow: -1px 3px 11px ${paletteColor.white50};
 `;
 
+const StyledPositioner = styled(KBarPositioner)`
+  z-index: 1;
+`;
+
 const KBarComponent = () => {
   return (
     <KBarPortal>
       <BackDrop />
-      <KBarPositioner>
+      <StyledPositioner>
         <StyledKBarAnimator>
           <KBarSearch />
           <KBarResult />
         </StyledKBarAnimator>
-      </KBarPositioner>
+      </StyledPositioner>
     </KBarPortal>
   );
 };
