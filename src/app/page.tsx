@@ -3,7 +3,7 @@ import MainPage from "@/components/page/MainPage";
 import { getPosts } from "@/apis";
 
 export const metadata: Metadata = {
-  title: "Dan DevLog",
+  title: "Notion Blog",
 };
 
 async function fetchNotionData() {

@@ -39,18 +39,6 @@ export const generateKBarAction = (router: AppRouterInstance) => {
           "noopner,noreferrer"
         ),
     },
-    {
-      id: "linkedin",
-      name: "LinkedIn",
-      subtitle: "Young Jae (Dan Lee) Lee",
-      section: "Social",
-      perform: () =>
-        window.open(
-          "https://www.linkedin.com/in/young%E2%80%86jae-lee-113451216/",
-          "_blank",
-          "noopner,noreferrer"
-        ),
-    },
   ];
 
   return actions;

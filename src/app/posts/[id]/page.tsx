@@ -12,7 +12,7 @@ export async function generateMetadata({
   const recordMap = await getNotionPage(pageId);
   const title = getPageTitle(recordMap);
   return {
-    title: `${title} | Dan DevLog`,
+    title: `${title} | Notion Blog`,
   };
 }
 

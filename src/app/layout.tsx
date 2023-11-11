@@ -4,11 +4,11 @@ import { Inter } from "next/font/google";
 import AppProvider from "@/components/AppProvider";
 import Layout from "@/components/layout";
 import NProgressBar from "@/components/NProgressBar";
+import GoogleAnalytics from "@/components/GoogleAnalytics";
 import "react-notion-x/src/styles.css";
 import "prismjs/themes/prism-tomorrow.css";
 import "nprogress/nprogress.css";
 import "./globals.css";
-import GoogleAnalytics from "@/components/GoogleAnalytics";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -29,7 +29,7 @@ export default function RootLayout({
           rel="alternate"
           type="application/rss+xml"
           href="/rss.xml"
-          title="Dan DevLog Feed RSS"
+          title="Notion Blog Feed RSS"
         />
       </head>
       <body className={inter.className}>

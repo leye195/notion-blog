@@ -1,5 +1,4 @@
 import { retrieveDatabase } from "@/libs/notion";
-import type { NextApiRequest, NextApiResponse } from "next";
 
 type Row = {
   id: string;

@@ -41,7 +41,7 @@ const Header = () => {
       <Nav>
         <div className="left-side">
           <Link href="/">
-            <b>DAN.DEV.LOG</b>
+            <b>Blog Name</b>
           </Link>
         </div>
         <div className="right-side">

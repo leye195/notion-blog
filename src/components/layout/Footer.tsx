@@ -28,7 +28,7 @@ const Footer = () => {
         </a>
       </Flex>
       <p className="lg:text-xl text-lg">
-        © {new Date().getFullYear()} dan.dev.log, All right reserved.
+        © {new Date().getFullYear()} [your name], All right reserved.
       </p>
       <p className="lg:text-lg text-base">Built with NextJS</p>
     </Container>

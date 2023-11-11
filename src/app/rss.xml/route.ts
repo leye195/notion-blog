@@ -7,8 +7,8 @@ const generateRssFeed = async () => {
   try {
     const posts = await getPosts("all");
     const feed = new Rss({
-      title: "Dan DevLog",
-      description: "Dan DevLog",
+      title: "Notion Blog",
+      description: "Notion Blog",
       site_url: `${process.env.NEXT_PUBLIC_URL}`,
       feed_url: `${process.env.NEXT_PUBLIC_URL}rss.xml`,
     });
