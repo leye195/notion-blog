@@ -43,7 +43,7 @@ pnpm start
 
 ### Google Analytics
 
-- pass gtagID to GoogleAnalytics component
+- pass gtagID to GoogleAnalytics component on `app/layout.tsx`
 
 ### SocialMedia
 
