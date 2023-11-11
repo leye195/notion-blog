@@ -30,7 +30,7 @@ const MainPage = ({ data }: Data<Post[]>) => {
         <Avatar
           className="md:w-[200px] md:h-[200px] w-[120px] h-[120px]  translate-y-[64px] border-spacing-4 border-2 border-gray-300"
           size={200}
-          src="/assets/avatar.gif"
+          src="/assets/avatar.jpg"
           priority
         />
       </Flex>
